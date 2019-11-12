@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER antimodes201
+MAINTAINER antimodes201(Discord: 
 
 # quash warnings
 ARG DEBIAN_FRONTEND=noninteractive
@@ -12,6 +12,7 @@ ENV BRANCH "public"
 ENV INSTANCE_NAME "default"
 ENV GAME_PORT "42433"
 ENV QUERY_PORT "42434"
+ENV RCON_PORT "42435"
 
 # dependencies
 RUN dpkg --add-architecture i386 && \
@@ -50,6 +51,7 @@ ADD start.sh /scripts/start.sh
 # Expose some port
 EXPOSE ${GAME_PORT}/udp
 EXPOSE ${QUERY_PORT}/udp
+EXPOSE ${RCON_PORT}/tcp
 
 # Make a volume
 # contains configs and world saves
