@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER antimodes201(Discord: 
+MAINTAINER antimodes201
 
 # quash warnings
 ARG DEBIAN_FRONTEND=noninteractive
@@ -13,6 +13,8 @@ ENV INSTANCE_NAME "default"
 ENV GAME_PORT "42433"
 ENV QUERY_PORT "42434"
 ENV RCON_PORT "42435"
+ENV TZ "America/New_York"
+ENV GSLT "default"
 
 # dependencies
 RUN dpkg --add-architecture i386 && \
@@ -21,6 +23,7 @@ RUN dpkg --add-architecture i386 && \
 		lib32gcc1 \
 		wget \
 		unzip \
+		tzdata \
 		ca-certificates && \
 		rm -rf /var/lib/apt/lists/*
 
